@@ -1,0 +1,63 @@
+import argparse
+import pandas
+import sys, time
+from selenium import webdriver
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--info", help="To know more about the script",action="store_true")
+args = parser.parse_args()
+if args.info:
+    print('This script starts a new session of the webbrowser. Takes input from the csv file and updates the invoice_details table in backend')
+    sys.exit()
+		
+
+#Launch URL
+fp = webdriver.FirefoxProfile()
+fp.set_preference("privacy.popups.disable_from_plugins", 3)
+fp.set_preference("dom.popup_maximum", 0)
+fp.set_preference("privacy.popups.showBrowserMessage", False)
+fp.set_preference("browser.helperApps.neverAsk.saveToDisk","application")
+#binary = FirefoxBinary('/Application/Firefox')
+browser = webdriver.Firefox(firefox_profile=fp)
+URL='file:///Users/hithyshikrishnamurthy/Desktop/dummyap_system.html'
+time.sleep(5)
+'''
+pyautogui.click()
+pyautogui.FAILSAFE = True
+pyautogui.PAUSE = 2.5
+'''
+df = pandas.read_excel('/Users/hithyshikrishnamurthy/Desktop/invoice_details.xlsx')
+(rows, columns) = (df.shape)
+print(df.columns)
+for i in range(rows):
+                browser.get(URL)
+                day , month, year = df['Invoice date'][i].strip().split('/')
+                # try:
+                day_ele = browser.find_element_by_id("day")
+                month_ele = browser.find_element_by_id("month")
+                year_ele = browser.find_element_by_id("year")
+                day_ele.send_keys(day)
+                month_ele.send_keys(month)
+                year_ele.send_keys(year)
+                time.sleep(4)
+                invoice_number = browser.find_element_by_id("Invoice Number")
+                time.sleep(2)
+                print(df['Invoice number'][i])
+                invoice_number.send_keys(int(df['Invoice number'][i]))
+                supplier_name = browser.find_element_by_id("Supplier Name")
+                supplier_name.send_keys(str(df['Supplier Name'][i]))
+                net_amount = browser.find_element_by_id("Net amount")
+                net_amount.send_keys(int(df['Net Amount'][i]))
+                VAT = browser.find_element_by_id("VAT")
+                VAT.send_keys(int(df['VAT'][i]))
+                gross_amount = browser.find_element_by_id("Gross amount")
+                gross_amount.send_keys(int(df['Gross Amount'][i]))
+                time.sleep(5)
+                submit = browser.find_element_by_id('User Details')
+                submit.submit()
+                time.sleep(5)
+#browser.close()                
+browser.quit()

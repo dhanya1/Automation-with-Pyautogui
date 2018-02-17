@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dummy AP system</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link  rel="stylesheet" type="text/css" href="/Users//hithyshikrishnamurthy/Desktop/styles.css">
+  <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script type="text/javascript">
+	$(document).ready( function () {
+		$('#User_Details').submit( function () {
+			var formdata = $(this).serialize();
+			$.ajax({
+			    type: "POST",
+			    url: "http://localhost:8000/cgi-bin/h2.py",
+			    data: formdata
+			    });
+			document.getElementById("User_Details").reset();
+		    return false;
+		});
+	});
+  </script>
+</head>
+<body>
+<h1><p class="header-style">AP SYSTEM</p></h1>
+<h1 class="sub-header-style">User details</h1>
+<div class="form-style">
+  <form id="User_Details" action="http://localhost:8000/cgi-bin/h2.py" method="POST">
+    <table class="table-style">
+      <tr>
+        <th align="right">Invoice date</th>
+        <td>
+          <input type="number" name = "day" id="day" min="1" max="31" placeholder="dd" maxlength="2">
+          <input type="number" name = "month" id="month" min="1" max="12" placeholder="mm" maxlength="2">
+          <input type="number" name = "year" id="year" min="1800" max="2018" placeholder="yyyy" maxlength="4">
+        </td>
+      </tr>
+      <tr>
+        <th align="right">Invoice Number</th>
+        <td><input type='number' name='Invoice Number' id='Invoice Number'></td>
+      </tr>
+      <tr>
+        <th align="right"> Supplier Name</th>
+        <td><input type='text' name='Supplier Name' id='Supplier Name'></td>
+      </tr>
+      <tr>
+        <th align="right">Net amount</th>
+        <td><input type='number' name='Net amount' id='Net amount'></td>
+      </tr>
+      <tr>
+        <th align="right">VAT(in %)</th>
+        <td><input type='number' name='VAT' id='VAT' min = "0" max = "100"></td>
+      </tr>
+      <tr>
+        <th align="right">Gross Amount</th>
+        <td><input type='number' name='Gross Amount' id='Gross amount'></td>
+      </tr>
+    </table>
+    <div class="button-style">
+      <button type="submit"  id = "submit">Submit</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>
+

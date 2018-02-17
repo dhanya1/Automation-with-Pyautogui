@@ -1,0 +1,30 @@
+.header-style {
+  padding: 0 0 0 30%;
+  color: blue;
+  font-size: 1.5em;
+}
+
+.sub-header-style {
+  padding: 0 0 0 35%;
+}
+
+.form-style {
+  padding: 0 0 0 22%;
+  width: 50%;
+}
+
+.table-style {
+  width: 100%;
+}
+
+.button-style {
+  padding: 4% 0 0 35%;
+}
+
+td {
+  padding: 0 0 0 3%;
+}
+
+tr {
+  padding: 2% 0 0 0;
+}
