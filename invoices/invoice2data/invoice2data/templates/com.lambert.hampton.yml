@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+issuer: Lambert Smith Hampton
+fields:
+  amount: Total\s+due\s+.([\d,]+\.\d{2})
+  amount_untaxed: Total\s+nett\s+charge\s+.([\d,]+\.\d{2})
+  date: Invoice\s+Date:TaxPoint\s?:\s+(\d{2})\s+(\w{3})\s+(\d{4})
+  invoice_number: Invoice\s+(\d+)
+  vat: VAT\sNumber.\s+(\w{3}\s+\w+\s+\w+)
+keywords:
+  - '15300060'
+  - Invoice
+  - Lambert Smith Hampton
+options:
+  currency: Pounds
+  date_formats:
+    - '%m/%d/%Y'
+decimal_separator: '.'

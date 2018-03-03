@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+issuer: UPS
+fields:
+  amount: Total\s+Amount\s+Due\s+\w+\s+([\d,]+.\d{2})
+  amount_untaxed: Total\sNon-Taxable\sCharges\s+([\d,]+.\d{2})
+  date: Invoice\sDate\s+(\d{1,2}\s\w+\s\d{4})
+  invoice_number: Invoice\sNo\.:\s+\w+\s+(\d+)
+  static_vat: 7 
+  
+keywords:
+  - United Parcel Service
+  - Invoice
+  - GBP
+  - UPS
+options:
+  currency: GBP
+  date_formats:
+    - '%d.%m.%Y'
+  languages:
+    - en
+decimal_separator: '.'

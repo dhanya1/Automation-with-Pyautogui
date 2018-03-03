@@ -1,0 +1,16 @@
+issuer: Pitney Bowes
+keywords:
+- pitneybowes
+- WC2R0RL
+fields:
+ amount: InvoiceTotal(\d+\.\d+)
+ date: InvoiceDate(\d+.\d+.\d+)
+ invoice_number: InvoiceNo(\d+)
+options:
+ remove_whitespace: true
+ currency: GBP
+ date_formats:
+ - '%d/%m/%Y'
+ languages:
+ - en
+ decimal_separator: '.'                                      

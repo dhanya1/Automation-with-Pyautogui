@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+issuer: SINGNET
+fields:
+  amount: Total\s+Amount\s+Due\s+([\d,]+.\d{2})
+  amount_untaxed: Total\s+Amount\s+Due\s+([\d,]+.\d{2})
+  date: Date\sof\sBIii\s+(\d{1,2}\s\w{3}\s\d{4})
+  invoice_number: 0111\.\s10\s+(\d+)
+  static_vat: 7
+keywords:
+  - SINGNET
+  - BILL
+  - USO
+  - '1992016240'    
+options:
+  currency: 'USO'
+  date_formats:
+    - '%d.%m.%Y'
+  languages:
+    - en
+decimal_separator: '.'
+
+

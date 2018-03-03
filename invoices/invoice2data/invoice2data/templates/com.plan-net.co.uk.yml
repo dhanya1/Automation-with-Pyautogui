@@ -1,0 +1,16 @@
+issuer: Plan-Net
+keywords:
+- www.plan-net.co.uk
+- AccountNumber:64093786
+fields:
+ amount: TOTAL£(\d+\.\d+)
+ date: Date&TaxPoint:(\d+...\d+) 
+ invoice_number: InvoiceNo:(\d+)
+options:
+ remove_whitespace: true
+ currency: GBP
+ date_formats:
+ - '%d/%m/%Y'
+ languages:
+ - en
+ decimal_separator: '.'   

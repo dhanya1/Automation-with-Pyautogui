@@ -1,0 +1,17 @@
+issuer: Lambert Smith Hampton
+keywords:
+- www.lsh.ie
+- VATNumber.740376245
+fields:
+  amount: Totaldue£(\d+\,\d+\.\d+)
+  date: TaxPoint:(\d+...\d+) 
+  invoice_number: Invoice(\d+)
+  vat_number: VATNumber.(\d+)
+options:
+  remove_whitespace: true
+  currency: GBP
+  date_formats:
+    - '%d/%m/%Y'
+  languages:
+    - en
+  decimal_separator: '.'
